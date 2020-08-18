@@ -11,9 +11,11 @@ from sklearn.metrics import mean_squared_error,r2_score, mean_absolute_error    
 
 from scipy import stats                                                          #Easier to interpret output
 from scipy.stats import kurtosis, skew
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 ######STEP2: DATA LOADING
-price_data = pd.read_excel(r'/Users/lucaswong/Desktop/Project1/Modelling/Step2.xlsx')
+price_data = pd.read_excel(dir_path + '/Step2.xlsx')
 
 price_data.index = pd.to_datetime(price_data['Date'])                            #Set index to data column
 price_data = price_data.drop(['Date'], axis = 1)                                 #Cancel the second column - inital dates
